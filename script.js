@@ -58,3 +58,8 @@ function esconderDiv(divAlvo) {
   div.classList.remove("mostrar");
   div.classList.add("naoMostrar");
 }
+function mutar(){
+  var audio = document.getElementById("somTeclas");
+  audio.muted = !audio.muted;
+}
+

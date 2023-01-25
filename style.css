@@ -13,6 +13,11 @@
     --amarelo: #FAED27;
     --preto: #000000;
 }
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .numerica, .colunaUm, .colunaDois{
    display: flex; 
    flex-direction: column;
@@ -76,24 +81,39 @@
     border: none;
     width: auto;
 }
+#display::placeholder{
+    font-family: "digital-7";
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--amarelo);
+    opacity: 1;
+}
 #memoria{
     background: none;
     font-family: 'Rajdhani', sans-serif;
     font-size: 1rem;
     height: 1.5rem;
     color: #faed27;
-    padding: 0 0.5rem;
+    padding: 0 1rem;
     box-sizing: border-box;
     text-align: left;
     border: none;
     width: auto;
+}
+#memoria::placeholder{
+    font-weight: bold;
+    font-family: "digital-7";
+    text-align: right;
+    color: var(--amarelo);
+    opacity: 1;
 }
 .teclas{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 3rem;
+    margin: 3rem 3rem 0 3rem;
     background: none;
 }
 
@@ -110,6 +130,7 @@ button {
     font-family: 'Rajdhani', sans-serif;
     font-weight: bold;    
     font-size: 1.5rem;
+    text-align: center;
     border: none;
     width: 3rem;
     height: 3rem;
@@ -138,7 +159,11 @@ button {
 button:active {
     background-color: #ac2a2a;
 }
-
+button>img{
+    width: 1.5rem;
+    margin-top: 0.5rem;
+    margin-left: 0.1rem;
+}
 
 #rodape{
     flex-direction: column;
@@ -170,19 +195,22 @@ button:active {
     display: flex;
 }
 #mostrarHistorico{
+    font-size: 1rem;
+    height: 2rem;
     width: 8rem;
 }
 
 /*    Footer    */
 
 .footer{
-    position: sticky;
-    top: 0;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    align-self: center;
     height: 3rem;
     width: 16rem;
     background: var(--amarelo);
@@ -197,7 +225,7 @@ button:active {
     font-weight: 800;
     padding: 0.2rem;
     color: var(--preto);
-    filter: drop-shadow(0.1rem 0.1rem 0.05rem #AC2A2A);
+    filter: drop-shadow(0 0.1rem 0.05rem var(--preto));
   }
   .social{
     display: flex;
@@ -209,5 +237,5 @@ button:active {
     width: 1.2rem;
     padding: 0.2rem;
     margin: 0.5rem;
-    filter: drop-shadow(0.1rem 0.1rem 0.05rem #AC2A2A);
+    filter: drop-shadow(0 0.1rem 0.02rem var(--preto));
   }

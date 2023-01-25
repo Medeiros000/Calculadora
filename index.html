@@ -18,16 +18,16 @@
             <div class="main">
                 <div class="inputs">
                     <input type="text" id="conta" readonly>
-                    <input type="text" id="display" readonly>
-                    <input type="text" id="memoria" readonly>
+                    <input type="text" id="display" readonly placeholder="CALCULADORA">
+                    <input type="text" id="memoria" readonly placeholder="Dev. Jr Medeiros  ">
                 </div>
                 <div class="teclas">
                     <div class="comandos">
                         <button onclick="memoria()">M+</button>
                         <button onclick="usarMemoria()">M</button>
                         <button onclick="limparTudo()">CE</button>
-                        <button>?</button>
-                        <button>?</button>
+                        <button onclick="mutar()"><img src="som.svg" alt="som"></button>
+                        <button>ON</button>
                     </div> 
                     <div class="baixo">
                         <div class="numerica">
@@ -55,11 +55,11 @@
                         <div class="operacoes">
                             <div class="colunaUm">
                                 <button onclick="limparDisplay()">C</button>
-                                <button onclick="enviarParaDisplay('*')">X</button>
+                                <button onclick="enviarParaDisplay('*')">x</button>
                                 <button class="botaoMais" onclick="enviarParaDisplay('+')">+</button>
                             </div>
                             <div class="colunaDois">
-                                <button onclick="backspace()">&#129092;</button>
+                                <button onclick="backspace()"><img src="back.svg" alt="backspace"></button>
                                 <button onclick="enviarParaDisplay('/')">/</button>
                                 <button onclick="enviarParaDisplay('-')">-</button>
                                 <button onclick="calculate()">=</button>
@@ -72,15 +72,16 @@
                     </div>
                 </div>
             </div>  
-            <nav class="footer">
-                <p class="criador">Dev - Jr. Medeiros</p>
-                <div class="social">
-                  <a href="https://github.com/Medeiros000" target="_blank"><img class="himage" src="github.svg" alt="github"></a>
-                  <a href="https://www.linkedin.com/in/j%C3%BAnior-medeiros-a58072259/" target="_blank"><img class="himage" src="linkedin.svg" alt="linkedin"></a>
-                </div>
-          </nav>            
+                     
         </div>
               
         <audio id="somTeclas" src="som.mp3"></audio>
+        <nav class="footer">
+            <p class="criador">Dev - Jr. Medeiros</p>
+            <div class="social">
+                <a href="https://github.com/Medeiros000" target="_blank"><img class="himage" src="github.svg" alt="github"></a>
+                <a href="https://www.linkedin.com/in/j%C3%BAnior-medeiros-a58072259/" target="_blank"><img class="himage" src="linkedin.svg" alt="linkedin"></a>
+            </div>
+        </nav>   
     </body>
 </html>
