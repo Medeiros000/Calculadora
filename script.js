@@ -44,3 +44,17 @@ function usarMemoria(){
 function registraHistorico(){
   document.getElementById("historico").value += (document.getElementById("conta").value) + "=" + (document.getElementById("display").value) + "\n";
 }
+function alternarDiv() {
+  var div = document.getElementById("rodape");
+  div.classList.contains("naoMostrar") ? mostrarDiv("rodape") : esconderDiv("rodape");
+}
+function mostrarDiv(divAlvo) {
+  var div = document.getElementById(divAlvo);
+  div.classList.remove("naoMostrar");
+  div.classList.add("mostrar");
+}
+function esconderDiv(divAlvo) {
+  var div = document.getElementById(divAlvo);
+  div.classList.remove("mostrar");
+  div.classList.add("naoMostrar");
+}

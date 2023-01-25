@@ -10,8 +10,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="media320-385.css">
-        <title>Calculadora</title>
+        <link rel="stylesheet" href="media275-350.css">
+        <title>Calculadora Medeiros000</title>
     </head>
     <body>
         <div class="calculadora">
@@ -65,13 +65,22 @@
                                 <button onclick="calculate()">=</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="rodape">
+                    </div>                        
+                    <button onclick ="alternarDiv()" id="mostrarHistorico">Histórico</button>
+                    <div id="rodape" class="naoMostrar">
                         <textarea id="historico" rows="5" readonly></textarea>
                     </div>
                 </div>
-            </div>            
-        </div>        
-        <audio id="somTeclas" src="som.mp3"></audio>
+            </div>  
+            <nav class="footer">
+                <p class="criador">Dev - Jr. Medeiros</p>
+                <div class="social">
+                  <a href="https://github.com/Medeiros000" target="_blank"><img class="himage" src="github.svg" alt="github"></a>
+                  <a href="https://www.linkedin.com/in/j%C3%BAnior-medeiros-a58072259/" target="_blank"><img class="himage" src="linkedin.svg" alt="linkedin"></a>
+                </div>
+          </nav>            
+        </div>
+              
+        <audio id="somTeclas" src="som.mp3" controls></audio>
     </body>
 </html>
