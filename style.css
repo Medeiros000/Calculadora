@@ -78,9 +78,9 @@ button {
     background-color: #faed27;
     color: #252525;
     font-family: 'Rajdhani', sans-serif;
-    font-weight: bold;
+    font-weight: bold;    
+    font-size: 1.5rem;
     border: none;
-    font-size: 2rem;
     width: 3rem;
     height: 3rem;
     margin: 0.5rem;
@@ -93,9 +93,9 @@ button {
     background-color: #faed27;
     color: #252525;
     font-family: 'Rajdhani', sans-serif;
-    font-weight: bold;
+    font-weight: bold;    
+    font-size: 1.5rem;
     border: none;
-    font-size: 2rem;
     width: 3rem;
     height: 7rem;
     gap: 0.5rem;
