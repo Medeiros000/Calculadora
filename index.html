@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="media320-385.css">
+        <title>Calculadora</title>
+    </head>
+    <body>
+        <div class="calculadora">
+            <div class="main">
+                <div class="inputs">
+                    <input type="text" id="conta" readonly>
+                    <input type="text" id="display" readonly>
+                    <input type="text" id="memoria" readonly>
+                </div>
+                <div class="teclas">
+                    <div class="comandos">
+                        <button onclick="memoria()">M⁺</button>
+                        <button onclick="usarMemoria()">M</button>
+                        <button onclick="limparTudo()">CE</button>
+                        <button>?</button>
+                        <button>?</button>
+                    </div> 
+                    <div class="baixo">
+                        <div class="numerica">
+                            <div class="linha">
+                                <button onclick="enviarParaDisplay('9')">9</button>
+                                <button onclick="enviarParaDisplay('8')">8</button>
+                                <button onclick="enviarParaDisplay('7')">7</button>
+                            </div>
+                            <div class="linha">
+                                <button onclick="enviarParaDisplay('6')">6</button>
+                                <button onclick="enviarParaDisplay('5')">5</button>
+                                <button onclick="enviarParaDisplay('4')">4</button>
+                            </div>
+                            <div class="linha">
+                                <button onclick="enviarParaDisplay('3')">3</button>
+                                <button onclick="enviarParaDisplay('2')">2</button>
+                                <button onclick="enviarParaDisplay('1')">1</button>
+                            </div>
+                            <div class="linha">
+                                <button onclick="enviarParaDisplay('0')">0</button>
+                                <button onclick="enviarParaDisplay('00')">00</button>
+                                <button onclick="enviarParaDisplay('.')">.</button>
+                            </div>
+                        </div>
+                        <div class="operacoes">
+                            <div class="colunaUm">
+                                <button onclick="limparDisplay()">C</button>
+                                <button onclick="enviarParaDisplay('*')">*</button>
+                                <button class="botaoMais" onclick="enviarParaDisplay('+')">+</button>
+                            </div>
+                            <div class="colunaDois">
+                                <button onclick="backspace()">&#129092;</button>
+                                <button onclick="enviarParaDisplay('/')">/</button>
+                                <button onclick="enviarParaDisplay('-')">-</button>
+                                <button onclick="calculate()">=</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rodape">
+                        <textarea id="historico" rows="5" readonly></textarea>
+                    </div>
+                </div>
+            </div>            
+        </div>        
+        <audio id="somTeclas" src="som.mp3"></audio>
+    </body>
+</html>
