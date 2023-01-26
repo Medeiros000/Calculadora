@@ -5,14 +5,20 @@ function enviarParaDisplay(value){
 }
   
 function calculate(){
-  try {
-    var expression = document.getElementById("display").value;
-    document.getElementById("conta").value = expression;
-    var resultado = eval(expression);
-    document.getElementById("display").value = resultado;
-    registraHistorico();
-  } catch (e) {
-    document.getElementById("display").value = "Erro";
+  var vazio = document.getElementById("display");
+  if(vazio.value === ""){
+    alert("Please select");
+  }else{
+    try {
+      var expression = document.getElementById("display").value;
+      document.getElementById("conta").value = expression;
+      var resultado = eval(expression);
+      document.getElementById("display").value = resultado;
+      registraHistorico();
+      tocar();
+    } catch (e) {
+      document.getElementById("display").value = "Erro";
+    }
   }
 }
   
@@ -29,6 +35,7 @@ function limparDisplay(){
 function backspace() {
   var input = document.getElementById("display");
   input.value = input.value.slice(0, -1);
+  tocar();
 }
 function tocar(){
   var audio = document.getElementById("somTeclas");
@@ -37,14 +44,16 @@ function tocar(){
 }
 function memoria(){
   document.getElementById("memoria").value = document.getElementById("display").value;
+  tocar();
 }
 function usarMemoria(){
   document.getElementById("display").value += document.getElementById("memoria").value;
+  tocar();
 }
 function registraHistorico(){
   document.getElementById("historico").value += (document.getElementById("conta").value) + "=" + (document.getElementById("display").value) + "\n";
 }
-function alternarDiv() {
+function alternarDiv(){
   var div = document.getElementById("rodape");
   div.classList.contains("naoMostrar") ? mostrarDiv("rodape") : esconderDiv("rodape");
 }
@@ -62,4 +71,3 @@ function mutar(){
   var audio = document.getElementById("somTeclas");
   audio.muted = !audio.muted;
 }
-
