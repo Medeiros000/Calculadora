@@ -10,9 +10,10 @@ function calculate(){
     alert("Please select");
   }else{
     try {
-      var expression = document.getElementById("display").value;
-      document.getElementById("conta").value = expression;
-      var resultado = eval(expression);
+      var expressaoPre = document.getElementById("display").value;
+      document.getElementById("conta").value = expressaoPre;
+      var expressao = traduzir(expressaoPre);
+      var resultado = eval(expressao);      
       document.getElementById("display").value = resultado;
       registraHistorico();
       tocar();
@@ -21,7 +22,16 @@ function calculate(){
     }
   }
 }
-  
+/*    Função que troca o "x" e "÷" por "*" e "/"    */
+function traduzir(input) {
+  let simbolos = [["x" , "*"] , ["÷" , "/"]];
+  for(let i = 0; i < simbolos.length; i++) {
+      if(input.includes(simbolos[i][0])) {
+          input = input.replaceAll(simbolos[i][0], simbolos[i][1]);
+      }
+  }
+  return input; 
+}
 function limparTudo(){
   document.getElementById("display").value = "";
   document.getElementById("conta").value = "";
@@ -31,6 +41,7 @@ function limparTudo(){
 }
 function limparDisplay(){
   document.getElementById("display").value = "";
+  document.getElementById("conta").value = "";
 }
 function backspace() {
   var input = document.getElementById("display");
@@ -71,3 +82,32 @@ function mutar(){
   var audio = document.getElementById("somTeclas");
   audio.muted = !audio.muted;
 }
+function onoff(){
+  var div = document.getElementById("on");
+  div.classList.contains("naoMostrar") ? mostrarDiv("on") : esconderDiv("on");
+  limparTudo();
+}
+
+function cinza(){
+  const botoes = document.querySelectorAll("button");
+  for (let i = 0; i < botoes.length; i++) {
+    botoes[i].style.filter = "contrast()";
+  }
+}
+function nocinza(){
+  const botoes = document.querySelectorAll("button");
+  for (let i = 0; i < botoes.length; i++) {
+    botoes[i].style.filter = "contrast(40%)";
+  }
+}
+/* Função em testes     
+let checkConta = document.getElementById("conta");
+let checkDisplay = document.getElementById("display");
+checkDisplay.addEventListener("input", function() {
+    if (checkConta.value == "") {
+    }else{
+      limparDisplay();
+    }
+    console.log(checkConta.value);
+});
+*/

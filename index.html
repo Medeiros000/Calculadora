@@ -18,16 +18,16 @@
             <div class="main">
                 <div class="inputs">
                     <input type="text" id="conta" readonly>
-                    <input type="text" id="display" readonly placeholder="CALCULADORA">
+                    <input type="text" id="display" readonly placeholder="0">
                     <input type="text" id="memoria" readonly placeholder="Dev. Jr Medeiros  ">
                 </div>
                 <div class="teclas">
                     <div class="comandos">
                         <button onclick="memoria()">M+</button>
-                        <button onclick="usarMemoria()">M</button>                        
+                        <button onclick="usarMemoria()">MR</button>                        
                         <button onclick="mutar()"><img src="som.svg" alt="som"></button>
                         <button onclick="limparTudo()">CE</button>
-                        <button>ON</button>
+                        <button onclick="onoff()" id="ligar">ON OFF</button>
                     </div> 
                     <div class="baixo">
                         <div class="numerica">
@@ -55,12 +55,12 @@
                         <div class="operacoes">
                             <div class="colunaUm">
                                 <button onclick="limparDisplay()">C</button>
-                                <button onclick="enviarParaDisplay('*')">x</button>
+                                <button onclick="enviarParaDisplay('x')">x</button>
                                 <button class="botaoMais" onclick="enviarParaDisplay('+')">+</button>
                             </div>
                             <div class="colunaDois">
                                 <button onclick="backspace()"><img src="back.svg" alt="backspace"></button>
-                                <button onclick="enviarParaDisplay('/')">/</button>
+                                <button onclick="enviarParaDisplay('÷')">÷</button>
                                 <button onclick="enviarParaDisplay('-')">-</button>
                                 <button onclick="calculate()">=</button>
                             </div>
@@ -72,7 +72,9 @@
                     </div>
                 </div>
             </div>  
-                     
+                     <div id="on" class="naoMostrar">
+                        <button onclick="onoff()" id="ligar" class="teste">ON OFF</button>
+                     </div>
         </div>
               
         <audio id="somTeclas" src="som.mp3"></audio>
