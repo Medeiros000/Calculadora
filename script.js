@@ -1,7 +1,6 @@
 
 function enviarParaDisplay(value){
   document.getElementById("display").value += value;
-
 }
 function enviarParaDisplayPonto(value){
   var display = document.getElementById("display");
@@ -23,12 +22,11 @@ function enviarParaDisplayZero(value){
 }
 function calculate(){
   var vazio = document.getElementById("display");
-  if(vazio.value === ""){
-    alert("vazio");
+  if(vazio.value === ""){    
   }else{
     try {
       var expressaoPre = document.getElementById("display").value;
-      document.getElementById("conta").value = expressaoPre;
+      document.getElementById("conta").value = (expressaoPre + "=");
       var expressao = traduzir(expressaoPre);
       var resultado = eval(expressao);      
       document.getElementById("display").value = resultado;
@@ -65,20 +63,17 @@ function backspace() {
   var input = document.getElementById("display");
   input.value = input.value.slice(0, -1);
 }
-
 /*    Função para guardar o valor no display na memória    */
 function memoria(){
   document.getElementById("memoria").value = document.getElementById("display").value;
-  tocar();
 }
 /*    Função para usar o valor na memória    */
 function usarMemoria(){
   document.getElementById("display").value += document.getElementById("memoria").value;
-  tocar();
 }
 /*    Função para registrar as operações no histórico    */
 function registraHistorico(){
-  document.getElementById("historico").value += (document.getElementById("conta").value) + "=" + (document.getElementById("display").value) + "\n";
+  document.getElementById("historico").value += (document.getElementById("conta").value) + (document.getElementById("display").value) + "\n";
 }
 /*    Função para alternar o modo de visualização do histórico    */
 function alternarDiv(divAlvo){
@@ -111,4 +106,19 @@ for (let i = 0; i < botao.length; i++){
     audio.play();
   });
 }
+/*    Listener para carregar os números    */
+var numeros = document.querySelectorAll("#numeros");
+var confereConta = document.getElementById("conta");
+var confereDisplay = document.getElementById("display");
+var operacoes =["+","-","÷","x"];
 
+for (let i = 0; i < numeros.length; i++){
+  
+  numeros[i].addEventListener("click", () => {
+    if (confereConta.value.includes("=") && !operacoes.some(operacoes=>confereDisplay.value.includes(operacoes))) {
+      limparDisplay();
+    }   
+    confereDisplay.value += numeros[i].innerHTML;
+    console.log(numeros[i].innerHTML);
+  });
+}

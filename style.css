@@ -60,6 +60,7 @@ body{
 #conta{
     background: none;
     font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.1rem;
     font-size: 1rem;
     height: 1.5rem;
     color: #faed27;
@@ -72,6 +73,7 @@ body{
 #display{
     background: none;
     font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.1rem;
     font-size: 2.5rem;
     height: 3rem;
     color: #faed27;
@@ -90,6 +92,7 @@ body{
 #memoria{
     background: none;
     font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.1rem;
     font-size: 1rem;
     height: 1.5rem;
     color: #faed27;
@@ -176,6 +179,7 @@ button>img{
 #historico{
     background: none;
     font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 0.1rem;
     font-size: 1rem;
     color: #faed27;
     text-align: right;
