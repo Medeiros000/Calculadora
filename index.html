@@ -27,7 +27,7 @@
                         <button onclick="usarMemoria()">MR</button>                        
                         <button onclick="mutar()"><img src="som.svg" alt="som"></button>
                         <button onclick="limparTudo()">CE</button>
-                        <button onclick="onoff()" id="ligar">ON OFF</button>
+                        <button onclick="limparDisplay()">C</button>
                     </div> 
                     <div class="baixo">
                         <div class="numerica">
@@ -49,12 +49,12 @@
                             <div class="linha">
                                 <button onclick="enviarParaDisplay('0')">0</button>
                                 <button onclick="enviarParaDisplay('00')">00</button>
-                                <button onclick="enviarParaDisplay('.')">.</button>
+                                <button onclick="enviarParaDisplayPonto('.')">.</button>
                             </div>
                         </div>
                         <div class="operacoes">
                             <div class="colunaUm">
-                                <button onclick="limparDisplay()">C</button>
+                                <button>?</button>
                                 <button onclick="enviarParaDisplay('x')">x</button>
                                 <button class="botaoMais" onclick="enviarParaDisplay('+')">+</button>
                             </div>
@@ -66,15 +66,12 @@
                             </div>
                         </div>
                     </div>                        
-                    <button onclick ="alternarDiv()" id="mostrarHistorico">Histórico</button>
+                    <button onclick ="alternarDiv('rodape')" id="mostrarHistorico">Histórico</button>
                     <div id="rodape" class="naoMostrar">
                         <textarea id="historico" rows="3" readonly></textarea>
                     </div>
                 </div>
             </div>  
-                     <div id="on" class="naoMostrar">
-                        <button onclick="onoff()" id="ligar" class="teste">ON OFF</button>
-                     </div>
         </div>
               
         <audio id="somTeclas" src="som.mp3"></audio>

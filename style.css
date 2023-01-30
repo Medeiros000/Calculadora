@@ -83,8 +83,7 @@ body{
 }
 #display::placeholder{
     font-family: 'Rajdhani', sans-serif;
-    font-size: 2.8rem;
-    font-weight: bold;
+    font-size: 2.5rem;
     color: var(--amarelo);
     opacity: 1;
 }
@@ -238,28 +237,3 @@ button>img{
     padding: 0.2rem;
     margin: 0.5rem;
 }
-#on{
-    position: fixed;
-    align-self: center;
-    top: 3rem;
-    width: 23rem;
-    height: 34.8rem;
-    border-radius: 1rem;
-    opacity: 1;
-    background: transparent;
-    backdrop-filter: brightness(30%);
-}
-#ligar{
-    font-size: 1rem;
-    font-weight: bold;    
-}
-.teste{
-    font-size: 1rem;
-    font-weight: bold;
-    position: absolute;
-    right: 1.49rem;
-    top: 11.4rem;
-    background-color: #ac2a2a;
-    opacity: 1;
-}
-  

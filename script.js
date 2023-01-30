@@ -3,11 +3,28 @@ function enviarParaDisplay(value){
   document.getElementById("display").value += value;
   tocar();
 }
-  
+function enviarParaDisplayPonto(value){
+  var display = document.getElementById("display");
+  if(display.value === ""){
+    display.value += ("0" + value);
+  }else{
+    display.value += value;
+  }
+  tocar();
+}
+function enviarParaDisplayZero(value){
+  var display = document.getElementById("display");
+  if(display.value === ""){
+    display.value += ("0" + value);
+  }else{
+    display.value += value;
+  }
+  tocar();
+}
 function calculate(){
   var vazio = document.getElementById("display");
   if(vazio.value === ""){
-    alert("Please select");
+    alert("vazio");
   }else{
     try {
       var expressaoPre = document.getElementById("display").value;
@@ -32,6 +49,7 @@ function traduzir(input) {
   }
   return input; 
 }
+/*    Função para limpar todos os campos    */
 function limparTudo(){
   document.getElementById("display").value = "";
   document.getElementById("conta").value = "";
@@ -39,34 +57,47 @@ function limparTudo(){
   document.getElementById("historico").value = "";
   tocar();
 }
+/*    Função para limpar somente os campos display e conta    */
 function limparDisplay(){
   document.getElementById("display").value = "";
   document.getElementById("conta").value = "";
+  tocar();
 }
+/*    Função para apagar o último caracter escrito    */
 function backspace() {
   var input = document.getElementById("display");
   input.value = input.value.slice(0, -1);
   tocar();
 }
+/*    Função para tocar som nas teclas    */
 function tocar(){
   var audio = document.getElementById("somTeclas");
   audio.currentTime = 0;
   audio.play();
 }
+/*    Função para guardar o valor no display na memória    */
 function memoria(){
   document.getElementById("memoria").value = document.getElementById("display").value;
   tocar();
 }
+/*    Função para usar o valor na memória    */
 function usarMemoria(){
   document.getElementById("display").value += document.getElementById("memoria").value;
   tocar();
 }
+/*    Função para registrar as operações no histórico    */
 function registraHistorico(){
   document.getElementById("historico").value += (document.getElementById("conta").value) + "=" + (document.getElementById("display").value) + "\n";
 }
-function alternarDiv(){
-  var div = document.getElementById("rodape");
-  div.classList.contains("naoMostrar") ? mostrarDiv("rodape") : esconderDiv("rodape");
+/*    Função para alternar o modo de visualização do histórico    */
+function alternarDiv(divAlvo){
+  var div = document.getElementById(divAlvo);
+  div.classList.contains("naoMostrar") ? mostrarDiv(divAlvo) : esconderDiv(divAlvo);
+}
+/*    Função para alternar o som das teclas    */
+function mutar(){
+  var audio = document.getElementById("somTeclas");
+  audio.muted = !audio.muted;
 }
 function mostrarDiv(divAlvo) {
   var div = document.getElementById(divAlvo);
@@ -78,36 +109,3 @@ function esconderDiv(divAlvo) {
   div.classList.remove("mostrar");
   div.classList.add("naoMostrar");
 }
-function mutar(){
-  var audio = document.getElementById("somTeclas");
-  audio.muted = !audio.muted;
-}
-function onoff(){
-  var div = document.getElementById("on");
-  div.classList.contains("naoMostrar") ? mostrarDiv("on") : esconderDiv("on");
-  limparTudo();
-}
-
-function cinza(){
-  const botoes = document.querySelectorAll("button");
-  for (let i = 0; i < botoes.length; i++) {
-    botoes[i].style.filter = "contrast()";
-  }
-}
-function nocinza(){
-  const botoes = document.querySelectorAll("button");
-  for (let i = 0; i < botoes.length; i++) {
-    botoes[i].style.filter = "contrast(40%)";
-  }
-}
-/* Função em testes     
-let checkConta = document.getElementById("conta");
-let checkDisplay = document.getElementById("display");
-checkDisplay.addEventListener("input", function() {
-    if (checkConta.value == "") {
-    }else{
-      limparDisplay();
-    }
-    console.log(checkConta.value);
-});
-*/
