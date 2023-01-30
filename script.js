@@ -1,7 +1,7 @@
 
 function enviarParaDisplay(value){
   document.getElementById("display").value += value;
-  tocar();
+
 }
 function enviarParaDisplayPonto(value){
   var display = document.getElementById("display");
@@ -10,16 +10,16 @@ function enviarParaDisplayPonto(value){
   }else{
     display.value += value;
   }
-  tocar();
 }
 function enviarParaDisplayZero(value){
   var display = document.getElementById("display");
   if(display.value === ""){
-    display.value += ("0" + value);
+    display.value += value;
+  }else if(display.value === "0"){
+
   }else{
     display.value += value;
   }
-  tocar();
 }
 function calculate(){
   var vazio = document.getElementById("display");
@@ -33,7 +33,6 @@ function calculate(){
       var resultado = eval(expressao);      
       document.getElementById("display").value = resultado;
       registraHistorico();
-      tocar();
     } catch (e) {
       document.getElementById("display").value = "Erro";
     }
@@ -55,26 +54,18 @@ function limparTudo(){
   document.getElementById("conta").value = "";
   document.getElementById("memoria").value = "";
   document.getElementById("historico").value = "";
-  tocar();
 }
 /*    Função para limpar somente os campos display e conta    */
 function limparDisplay(){
   document.getElementById("display").value = "";
   document.getElementById("conta").value = "";
-  tocar();
 }
 /*    Função para apagar o último caracter escrito    */
 function backspace() {
   var input = document.getElementById("display");
   input.value = input.value.slice(0, -1);
-  tocar();
 }
-/*    Função para tocar som nas teclas    */
-function tocar(){
-  var audio = document.getElementById("somTeclas");
-  audio.currentTime = 0;
-  audio.play();
-}
+
 /*    Função para guardar o valor no display na memória    */
 function memoria(){
   document.getElementById("memoria").value = document.getElementById("display").value;
@@ -109,3 +100,15 @@ function esconderDiv(divAlvo) {
   div.classList.remove("mostrar");
   div.classList.add("naoMostrar");
 }
+/*    EventListener para tocar som no click de um botão    */
+var botao = document.querySelectorAll("button");
+console.log(botao);
+
+for (let i = 0; i < botao.length; i++){
+  botao[i].addEventListener("click", () => {
+    var audio = document.getElementById("somTeclas");
+    audio.currentTime = 0;
+    audio.play();
+  });
+}
+
