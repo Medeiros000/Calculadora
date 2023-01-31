@@ -2,25 +2,42 @@
 function enviarParaDisplay(value){
   document.getElementById("display").value += value;
 }
-function enviarParaDisplayPonto(value){
+/*    Função que envia Ponto para o display    */
+var ponto = document.getElementById("ponto");
+ponto.onclick = enviarPonto;
+function enviarPonto(){
   var display = document.getElementById("display");
-  if(display.value === ""){
-    display.value += ("0" + value);
-  }else{
-    display.value += value;
+  var lastChar = display.value[display.value.length - 1];
+  if(display.value === "" || lastChar === "+" || lastChar === "-" || lastChar === "*" || lastChar === "/"){
+    display.value += ("0" + ".");
+  }else if(lastChar === "."){}else{
+    display.value += ".";
   }
 }
-function enviarParaDisplayZero(value){
+/*    Função que envia Zero para o display    */
+var zero = document.getElementById("zero");
+zero.onclick = enviarZero;
+function enviarZero(){
   var display = document.getElementById("display");
   if(display.value === ""){
-    display.value += value;
-  }else if(display.value === "0"){
-
-  }else{
-    display.value += value;
+    display.value += "0";
+  }else if(display.value === "0"){}else{
+    display.value += "0";
   }
 }
-function calculate(){
+/*    Função que envia ZeroZero para o display    */
+var zeroZero = document.getElementById("zeroZero");
+zeroZero.onclick = enviarZeroZero;
+function enviarZeroZero(){
+  var display = document.getElementById("display");
+  if(display.value === "" || display.value === "0"){}else{
+    display.value += "00";
+  }
+}
+/*    Função para calcular expressão do display    */
+var calcular = document.getElementById("calcular");
+calcular.onclick = calcularExpressao;
+function calcularExpressao(){
   var vazio = document.getElementById("display");
   if(vazio.value === ""){    
   }else{
@@ -29,10 +46,20 @@ function calculate(){
       document.getElementById("conta").value = (expressaoPre + "=");
       var expressao = traduzir(expressaoPre);
       var resultado = eval(expressao);      
-      document.getElementById("display").value = resultado;
-      registraHistorico();
-    } catch (e) {
+      if(resultado === undefined){ /*    Para resultado Undefined    */
+        document.getElementById("display").value = "Erro";
+        setTimeout(() => {limparDisplay()}, 1500);
+      }else{ /*    Para resultado viável    */        
+        if(resultado === 0.30000000000000004){/*    Por algum motivo a soma 0.1+0.2 está dando esse resultado    */
+          resultado = "0.3";
+        }
+        document.getElementById("display").value = resultado;
+        console.log(resultado);
+        registraHistorico();
+      }
+    } catch (e) { /*    Para resultado Erro    */
       document.getElementById("display").value = "Erro";
+      setTimeout(() => {limparDisplay()}, 1500);
     }
   }
 }
@@ -80,11 +107,6 @@ function alternarDiv(divAlvo){
   var div = document.getElementById(divAlvo);
   div.classList.contains("naoMostrar") ? mostrarDiv(divAlvo) : esconderDiv(divAlvo);
 }
-/*    Função para alternar o som das teclas    */
-function mutar(){
-  var audio = document.getElementById("somTeclas");
-  audio.muted = !audio.muted;
-}
 function mostrarDiv(divAlvo) {
   var div = document.getElementById(divAlvo);
   div.classList.remove("naoMostrar");
@@ -94,6 +116,11 @@ function esconderDiv(divAlvo) {
   var div = document.getElementById(divAlvo);
   div.classList.remove("mostrar");
   div.classList.add("naoMostrar");
+}
+/*    Função para alternar o som das teclas    */
+function mutar(){
+  var audio = document.getElementById("somTeclas");
+  audio.muted = !audio.muted;
 }
 /*    EventListener para tocar som no click de um botão    */
 var botao = document.querySelectorAll("button");
@@ -112,8 +139,7 @@ var confereConta = document.getElementById("conta");
 var confereDisplay = document.getElementById("display");
 var operacoes =["+","-","÷","x"];
 
-for (let i = 0; i < numeros.length; i++){
-  
+for (let i = 0; i < numeros.length; i++){  
   numeros[i].addEventListener("click", () => {
     if (confereConta.value.includes("=") && !operacoes.some(operacoes=>confereDisplay.value.includes(operacoes))) {
       limparDisplay();

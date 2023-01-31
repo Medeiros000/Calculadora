@@ -46,9 +46,9 @@
                                 <button id="numeros">1</button>
                             </div>
                             <div class="linha">
-                                <button onclick="enviarParaDisplayZero('0')">0</button>
-                                <button onclick="enviarParaDisplay('00')">00</button>
-                                <button onclick="enviarParaDisplayPonto('.')"> . </button>
+                                <button id="zero">0</button>
+                                <button id="zeroZero">00</button>
+                                <button id="ponto">.</button>
                             </div>
                         </div>
                         <div class="operacoes">
@@ -58,10 +58,10 @@
                                 <button class="botaoMais" onclick="enviarParaDisplay('+')">+</button>
                             </div>
                             <div class="colunaDois">
-                                <button onclick="backspace()"><img src="back.svg" alt="backspace"></button>
+                                <button onclick="backspace()"><img src="back.svg" alt="Bs"></button>
                                 <button onclick="enviarParaDisplay('÷')">÷</button>
                                 <button onclick="enviarParaDisplay('-')">-</button>
-                                <button onclick="calculate()">=</button>
+                                <button id="calcular">=</button>
                             </div>
                         </div>
                     </div>                        
