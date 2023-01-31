@@ -22,7 +22,7 @@
                 </div>
                 <div class="teclas">
                     <div class="comandos">
-                        <button onclick="memoria()">M+</button>
+                        <button onclick="guardarNaMemoria()">M+</button>
                         <button onclick="usarMemoria()">MR</button>                        
                         <button onclick="mutar()"><img src="som.svg" alt="som"></button>
                         <button onclick="limparTudo()">CE</button>
@@ -54,13 +54,13 @@
                         <div class="operacoes">
                             <div class="colunaUm">
                                 <button>?</button>
-                                <button onclick="enviarParaDisplay('x')">x</button>
-                                <button class="botaoMais" onclick="enviarParaDisplay('+')">+</button>
+                                <button id="operacao">x</button>
+                                <button class="botaoMais" id="operacao">+</button>
                             </div>
                             <div class="colunaDois">
-                                <button onclick="backspace()"><img src="back.svg" alt="Bs"></button>
-                                <button onclick="enviarParaDisplay('÷')">÷</button>
-                                <button onclick="enviarParaDisplay('-')">-</button>
+                                <button id="backspace"><img src="back.svg" alt="Bs"></button>
+                                <button id="operacao">÷</button>
+                                <button id="operacao">-</button>
                                 <button id="calcular">=</button>
                             </div>
                         </div>
