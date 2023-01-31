@@ -1,23 +1,12 @@
-@font-face {
-    font-family: "digital-7";
-    src: url(digital-7.ttf) format("opentype");
-    font-weight: normal;
-    font-style: normal;
-}
-
 /* Estilo para o fundo */
 :root{
     font-size: 15px;
     background: #000000;
-    transition: 300ms all ease-in;
+    transition: all 300ms ease;
     --amarelo: #FAED27;
     --preto: #252525;
 }
-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
 .numerica, .colunaUm, .colunaDois{
    display: flex; 
    flex-direction: column;
@@ -149,14 +138,11 @@ button {
     font-family: 'Rajdhani', sans-serif;
     font-weight: bold;    
     font-size: 1.5rem;
-    border: none;
     width: 3rem;
     height: 7rem;
-    gap: 0.5rem;
     box-sizing: border-box;
     border: 0.2rem solid #252525;
     border-radius: 1rem;
-    transition: background-color 0.5s ease;
 }
 button:active {
     background-color: #ac2a2a;

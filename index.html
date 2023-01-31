@@ -22,11 +22,11 @@
                 </div>
                 <div class="teclas">
                     <div class="comandos">
-                        <button onclick="guardarNaMemoria()">M+</button>
-                        <button onclick="usarMemoria()">MR</button>                        
-                        <button onclick="mutar()"><img src="som.svg" alt="som"></button>
-                        <button onclick="limparTudo()">CE</button>
-                        <button onclick="limparDisplay()">C</button>
+                        <button id="mPlus">M+</button>
+                        <button id="usarM">MR</button>                        
+                        <button id="mutar"><img src="som.svg" alt="som"></button>
+                        <button id="ce">CE</button>
+                        <button id="c">C</button>
                     </div> 
                     <div class="baixo">
                         <div class="numerica">
@@ -65,7 +65,7 @@
                             </div>
                         </div>
                     </div>                        
-                    <button onclick ="alternarDiv('rodape')" id="mostrarHistorico">Histórico</button>
+                    <button id="mostrarHistorico">Histórico</button>
                     <div id="rodape" class="naoMostrar">
                         <textarea id="historico" rows="3" readonly></textarea>
                     </div>

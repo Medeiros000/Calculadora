@@ -5,9 +5,8 @@ let memoria = document.getElementById("memoria");
 let historico = document.getElementById("historico");
 /*\_________________________________________________/*/
 
-/*     Listener para as operacoes mateaticas     */
+/*     Listener para as operações mateaticas     */
 let operacao = document.querySelectorAll("#operacao");
-console.log(operacao.length);
 for (let i = 0; i < operacao.length; i++){  
   operacao[i].addEventListener("click", () => {
     let lastChar = display.value[display.value.length - 1];
@@ -15,7 +14,6 @@ for (let i = 0; i < operacao.length; i++){
     if ((lastChar === opInHtml)|| (lastChar === ".") || (lastChar === "x" && opInHtml === "÷") || (lastChar === "÷" && opInHtml === "x") || ((display.value === "" || lastChar === "-" || lastChar === "+") && (opInHtml === "x" || opInHtml === "÷"))) {      
     }else{
       display.value += opInHtml;
-      console.log(opInHtml);
     }    
   });
 }
@@ -24,7 +22,7 @@ let ponto = document.getElementById("ponto");
 ponto.onclick = enviarPonto;
 function enviarPonto(){
   let lastChar = display.value[display.value.length - 1];
-  if(display.value === "" || lastChar === "+" || lastChar === "-" || lastChar === "*" || lastChar === "÷"){
+  if(display.value === "" || lastChar === "+" || lastChar === "-" || lastChar === "x" || lastChar === "÷"){
     display.value += ("0" + ".");
   }else if(lastChar === "."){}else if(conta.value.includes("=")){
     limparDisplay()
@@ -73,7 +71,6 @@ function calcularExpressao(){
           resultado = "0.3";
         }
         display.value = resultado;
-        console.log(resultado);
         registraHistorico();
       }
     } catch (e) { /*    Para resultado Erro    */
@@ -93,6 +90,8 @@ function traduzir(input) {
   return input; 
 }
 /*    Função para limpar todos os campos    */
+let CE = document.getElementById("ce");
+CE.onclick = limparTudo;
 function limparTudo(){
   display.value = "";
   conta.value = "";
@@ -100,6 +99,8 @@ function limparTudo(){
   historico.value = "";
 }
 /*    Função para limpar somente os campos display e conta    */
+let C = document.getElementById("c");
+C.onclick = limparDisplay;
 function limparDisplay(){
   display.value = "";
   conta.value = "";
@@ -107,19 +108,26 @@ function limparDisplay(){
 /*    Função para apagar o último caracter escrito    */
 let backspace = document.getElementById("backspace");
 backspace.onclick = Backspace;
-function Backspace() {if (conta.value.includes("=")) {
+function Backspace() {if ((conta.value.includes("=")) || (display.value === "0.")) {  
   limparDisplay();
-} else {
-  let input = display;
-  input.value = input.value.slice(0, -1);
-  }  
+  } else {
+    let input = display;
+    input.value = input.value.slice(0, -1);
+    }  
 }
 /*    Função para guardar o valor no display na memória    */
+let mPlus = document.getElementById("mPlus");
+mPlus.onclick = guardarNaMemoria;
 function guardarNaMemoria(){
   memoria.value = display.value;
 }
 /*    Função para usar o valor na memória    */
+let usarM = document.getElementById("usarM");
+usarM.onclick = usarMemoria;
 function usarMemoria(){
+  if (conta.value.includes("=")) {
+    limparDisplay();
+  }   
   display.value += memoria.value;
 }
 /*    Função para registrar as operações no histórico    */
@@ -127,9 +135,11 @@ function registraHistorico(){
   historico.value += (conta.value) + (display.value) + "\n";
 }
 /*    Função para alternar o modo de visualização do histórico    */
-function alternarDiv(divAlvo){
-  let div = document.getElementById(divAlvo);
-  div.classList.contains("naoMostrar") ? mostrarDiv(divAlvo) : esconderDiv(divAlvo);
+let mHistorico = document.getElementById("mostrarHistorico")
+mHistorico.onclick = alternarDiv;
+function alternarDiv(){
+  let div = document.getElementById("rodape");
+  div.classList.contains("naoMostrar") ? mostrarDiv("rodape") : esconderDiv("rodape");
 }
 function mostrarDiv(divAlvo) {
   let div = document.getElementById(divAlvo);
@@ -142,14 +152,14 @@ function esconderDiv(divAlvo) {
   div.classList.add("naoMostrar");
 }
 /*    Função para alternar o som das teclas    */
-function mutar(){
+let mutar = document.getElementById("mutar");
+mutar.onclick = alternarSom;
+function alternarSom(){
   let audio = document.getElementById("somTeclas");
   audio.muted = !audio.muted;
 }
 /*    EventListener para tocar som no click de um botão    */
 let botao = document.querySelectorAll("button");
-console.log(botao);
-
 for (let i = 0; i < botao.length; i++){
   botao[i].addEventListener("click", () => {
     let audio = document.getElementById("somTeclas");
@@ -160,13 +170,11 @@ for (let i = 0; i < botao.length; i++){
 /*    Listener para carregar os números    */
 let numeros = document.querySelectorAll("#numeros");
 let operacoes =["+","-","÷","x"];
-
 for (let i = 0; i < numeros.length; i++){  
   numeros[i].addEventListener("click", () => {
     if (conta.value.includes("=") && !operacoes.some(operacoes=>display.value.includes(operacoes))) {
       limparDisplay();
     }   
     display.value += numeros[i].innerHTML;
-    console.log(numeros[i].innerHTML);
   });
 }
