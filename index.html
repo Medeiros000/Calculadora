@@ -4,13 +4,13 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/media275-350.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="media275-350.css">
-        <link rel="icon" type="image/svg" href="calc.svg">
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">        
+        <link rel="icon" type="image/svg" href="./img/calc.svg">
         <title>Calculadora Jr Medeiros</title>
     </head>
     <body>
@@ -25,9 +25,9 @@
                     <div class="comandos">
                         <button id="mPlus">M+</button>
                         <button id="usarM">MR</button>                        
-                        <button id="mutar"><img src="som.svg" alt="som"></button>
+                        <button id="mutar"></button>                        
+                        <button id="dark"></button>
                         <button id="ce">CE</button>
-                        <button id="c">C</button>
                     </div> 
                     <div class="baixo">
                         <div class="numerica">
@@ -54,12 +54,13 @@
                         </div>
                         <div class="operacoes">
                             <div class="colunaUm">
-                                <button>?</button>
+                                <button id="backspace"></button>
                                 <button id="operacao">x</button>
                                 <button class="botaoMais" id="operacao">+</button>
                             </div>
                             <div class="colunaDois">
-                                <button id="backspace"><img src="back.svg" alt="Bs"></button>
+                                <button id="c">C</button>
+                                
                                 <button id="operacao">÷</button>
                                 <button id="operacao">-</button>
                                 <button id="calcular">=</button>
@@ -77,10 +78,10 @@
         <nav class="footer">
             <p class="criador">Dev - Jr. Medeiros</p>
             <div class="social">
-                <a href="https://github.com/Medeiros000" target="_blank"><img class="himage" src="github2.svg" alt="github"></a>
-                <a href="https://www.linkedin.com/in/j%C3%BAnior-medeiros-a58072259/" target="_blank"><img class="himage" src="linkedin2.svg" alt="linkedin"></a>
+                <a href="https://github.com/Medeiros000" target="_blank"><img class="himage" src="img/github.svg" alt="github"></a>
+                <a href="https://www.linkedin.com/in/j%C3%BAnior-medeiros-a58072259/" target="_blank"><img class="himage" src="img/linkedin.svg" alt="linkedin"></a>
             </div>
         </nav>
-        <script src="script.js"></script>   
+        <script src="../js/script.js"></script>   
     </body>
 </html>
