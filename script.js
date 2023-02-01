@@ -125,9 +125,6 @@ function guardarNaMemoria(){
 let usarM = document.getElementById("usarM");
 usarM.onclick = usarMemoria;
 function usarMemoria(){
-  if (conta.value.includes("=")) {
-    limparDisplay();
-  }   
   display.value += memoria.value;
 }
 /*    Função para registrar as operações no histórico    */
