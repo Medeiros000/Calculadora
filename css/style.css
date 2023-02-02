@@ -37,7 +37,7 @@
     width: 23rem;
     margin: 3rem auto 0rem;
     box-sizing: border-box;
-    border: 0.5rem solid var(--secundaria);
+    border: 0.4rem solid var(--secundaria);
     border-radius: 0.5rem 0.5rem 5rem 5rem;
     background: var(--terciaria);
 }
@@ -52,8 +52,9 @@
 .inputs{
     display: flex;
     flex-direction: column;
+    margin-bottom: 1rem;
     background: var(--secundaria);
-    border: 0.2rem solid var(--primaria);
+    border: 0.4rem double var(--primaria);
     box-sizing: border-box;
     border-radius: 1rem;
     width: 20rem;
@@ -67,7 +68,6 @@
     height: 1.5rem;
     color: var(--primaria);
     padding: 0.2rem 0.5rem 0;
-    box-sizing: border-box;
     text-align: right;
     border: none;
     width: auto;
@@ -79,7 +79,6 @@
     font-size: 2.5rem;
     height: 3rem;
     color: var(--primaria);
-    box-sizing: border-box;
     text-align: right;
     padding: 0 1rem;
     border: none;
@@ -99,7 +98,6 @@
     height: 1.5rem;
     color: var(--primaria);
     padding: 0 1rem;
-    box-sizing: border-box;
     text-align: left;
     border: none;
     width: auto;    
@@ -140,20 +138,12 @@ button {
     box-sizing: border-box;
     border: 0.2rem solid var(--secundaria);   
     border-radius: 1rem;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.1s ease;
     filter: drop-shadow(0.1rem 0.1rem 0.05rem var(--secundaria));
 }
 .botaoMais{
-    background-color: var(--primaria);
-    color: var(--secundaria);
-    font-family: 'Rajdhani', sans-serif;
-    font-weight: bold;    
-    font-size: 1.5rem;
-    width: 3rem;
+    font-size: 2rem;
     height: 7rem;
-    box-sizing: border-box;
-    border: 0.2rem solid var(--secundaria);
-    border-radius: 1rem;
 }
 #mutar{
     background-image: var(--svg-som);
@@ -173,20 +163,22 @@ button {
 button:active {
     background-color: var(--quaternaria);
 }
-button>img{
-    width: 1.5rem;
-    margin-top: 0.5rem;
-    margin-left: 0.1rem;
-}
 
 #rodape{
     flex-direction: column;
     background: none;
     background-color: var(--secundaria);
+    margin-bottom: 0.5rem;
     box-sizing: border-box;
-    border: 0.3rem solid var(--primaria);
+    border: 0.4rem double var(--primaria);
     border-radius: 1rem;
     width: 15rem;
+}
+#mostrarHistorico{
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    height: 2rem;
+    width: 8rem;
 }
 #historico{
     background: none;
@@ -195,7 +187,7 @@ button>img{
     font-size: 1rem;
     color: var(--primaria);
     text-align: right;
-    padding: 0 1rem ;
+    padding: 0 1rem;
     width: auto; 
     height: 100%;
     border: none;   
@@ -207,11 +199,6 @@ button>img{
 }
 .mostrar{
     display: flex;
-}
-#mostrarHistorico{
-    font-size: 1rem;
-    height: 2rem;
-    width: 8rem;
 }
 
 /*    Footer    */
@@ -229,7 +216,7 @@ button>img{
     width: 6rem;
     background: #faed27;
     box-sizing: border-box;
-    border: 0.2rem solid #252525;
+    border: 0.4rem double #252525;
     border-radius: 10rem;
 }
 .criador{
@@ -252,9 +239,4 @@ button>img{
     width: 1.2rem;
     padding: 0.2rem;
     margin: 0.5rem;
-}
-
-.slider{
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 2rem;
 }

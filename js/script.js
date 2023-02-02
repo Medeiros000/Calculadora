@@ -84,7 +84,7 @@ function traduzir(input) {
   let simbolos = [["x" , "*"] , ["÷" , "/"]];
   for(let i = 0; i < simbolos.length; i++) {
       if(input.includes(simbolos[i][0])) {
-          input = input.replaceAll(simbolos[i][0], simbolos[i][1]);
+        input = input.replaceAll(simbolos[i][0], simbolos[i][1]);
       }
   }
   return input; 
@@ -175,6 +175,7 @@ for (let i = 0; i < numeros.length; i++){
     display.value += numeros[i].innerHTML;
   });
 }
+/*    Modo Dark    */
 let dark = document.getElementById("dark");
 dark.onclick = DarkMode;
 function DarkMode() {
