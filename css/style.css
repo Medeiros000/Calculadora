@@ -120,10 +120,6 @@
 #conta:focus, #display:focus, #memoria:focus, #historico:focus{
     outline: none;
 }
-.botoes{
-    display: flex;
-    flex-direction: column;
-}
 button {
     background: var(--primaria);
     color: var(--secundaria);

@@ -5,13 +5,13 @@ let memoria = document.getElementById("memoria");
 let historico = document.getElementById("historico");
 /*\_________________________________________________/*/
 
-/*     Listener para as operações mateaticas     */
+/*     Listener para as operações matematicas     */
 let operacao = document.querySelectorAll("#operacao");
-for (let i = 0; i < operacao.length; i++){  
+for(let i = 0; i < operacao.length; i++){  
   operacao[i].addEventListener("click", () => {
     let lastChar = display.value[display.value.length - 1];
     let opInHtml = operacao[i].innerHTML;
-    if ((lastChar === opInHtml)|| (lastChar === ".") || (lastChar === "x" && opInHtml === "÷") || (lastChar === "÷" && opInHtml === "x") || ((display.value === "" || lastChar === "-" || lastChar === "+") && (opInHtml === "x" || opInHtml === "÷"))) {      
+    if(lastChar === opInHtml|| lastChar === "." || lastChar === "x" && opInHtml === "÷" || lastChar === "÷" && opInHtml === "x" || ((display.value === "" || lastChar === "-" || lastChar === "+") && (opInHtml === "x" || opInHtml === "÷"))) {      
     }else{
       display.value += opInHtml;
     }    
@@ -27,7 +27,7 @@ function enviarPonto(){
   }else if(lastChar === "."){}else if(conta.value.includes("=")){
     limparDisplay()
     display.value += ("0" + ".");
-  } else{
+  }else{
     display.value += ".";
   }
 }
@@ -58,7 +58,7 @@ calcular.onclick = calcularExpressao;
 function calcularExpressao(){
   if(display.value === ""){    
   }else{
-    try {
+    try{
       let expressaoPre = display.value;
       conta.value = (expressaoPre + "=");
       let expressao = traduzir(expressaoPre);
@@ -73,7 +73,7 @@ function calcularExpressao(){
         display.value = resultado;
         registraHistorico();
       }
-    } catch (e) { /*    Para resultado Erro    */
+    }catch (e){ /*    Para resultado Erro    */
       display.value = "Erro";
       setTimeout(() => {limparDisplay()}, 1500);
     }
@@ -91,15 +91,15 @@ function traduzir(input) {
 }
 /*    Função para limpar todos os campos    */
 let CE = document.getElementById("ce");
-CE.onclick = limparTudo;
-function limparTudo(){
+CE.onclick = limparDisplay;
+function limparDisplay(){
   display.value = "";
   conta.value = "";
 }
 /*    Função para limpar somente os campos display e conta    */
 let C = document.getElementById("c");
-C.onclick = limparDisplay;
-function limparDisplay(){
+C.onclick = limparTudo;
+function limparTudo(){
   display.value = "";
   conta.value = "";
   memoria.value = "";
