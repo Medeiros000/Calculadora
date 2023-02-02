@@ -6,6 +6,7 @@
     --primaria: #faed27;
     --secundaria: #252525;
     --terciaria: #ac2a2a;
+    --quaternaria: #ac2b2b;
     --svg-som: url("../img/som.svg");
     --svg-BS: url("../img/back.svg");
     --modo: url("../img/lua.svg");
@@ -14,6 +15,7 @@
     --primaria: #000000;
     --secundaria: #ffffff;
     --terciaria: #000000;
+    --quaternaria: #b3b3b3;
     --svg-som: url("../img/som2.svg");
     --svg-BS: url("../img/back2.svg");
     --modo: url("../img/sol.svg");
@@ -169,7 +171,7 @@ button {
     background-position: center center;
 }
 button:active {
-    background-color: var(--terciaria);
+    background-color: var(--quaternaria);
 }
 button>img{
     width: 1.5rem;
