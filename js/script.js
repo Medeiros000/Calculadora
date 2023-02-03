@@ -29,8 +29,9 @@ let ponto = document.getElementById("ponto");
 ponto.onclick = enviarPonto;
 function enviarPonto(){
   let lastChar = display.value[display.value.length - 1];
-  if(display.value.includes('.')) return
-
+  /*    Criar um map para rastrear como o ponto se comporta na expressão    */
+  /*if(display.value.includes('.')) return*/
+  if(lastChar === ".") return;
   if(display.value === "" || lastChar === "+" || lastChar === "-" || lastChar === "x" || lastChar === "÷"){
     display.value += ("0" + ".");
   }else if(conta.value.includes("=")){
