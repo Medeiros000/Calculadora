@@ -5,26 +5,35 @@ let memoria = document.getElementById("memoria");
 let historico = document.getElementById("historico");
 /*\_________________________________________________/*/
 
-/*     Listener para as operações matematicas     */
-let operacao = document.querySelectorAll("#operacao");
-for(let i = 0; i < operacao.length; i++){  
-  operacao[i].addEventListener("click", () => {
-    let lastChar = display.value[display.value.length - 1];
-    let opInHtml = operacao[i].innerHTML;
-    if(lastChar === opInHtml|| lastChar === "." || lastChar === "x" && opInHtml === "÷" || lastChar === "÷" && opInHtml === "x" || ((display.value === "" || lastChar === "-" || lastChar === "+") && (opInHtml === "x" || opInHtml === "÷"))) {      
-    }else{
-      display.value += opInHtml;
-    }    
-  });
+function checkLastCharIsOp(lastChar, opInHtml) {
+  return lastChar === opInHtml ||
+      lastChar === "." ||
+      lastChar === "x" && opInHtml === "÷"
+      || lastChar === "÷" && opInHtml === "x"
+      || ((display.value === "" || lastChar === "-" || lastChar === "+") && (opInHtml === "x" || opInHtml === "÷"))
 }
+
+/*     Listener para as operações matematicas     */
+let operacoesHtml = document.querySelectorAll("#operacao");
+operacoesHtml.forEach((operacao) => {
+  operacao.addEventListener("click", () => {
+    let lastChar = display.value[display.value.length - 1];
+    let opInHtml = operacao.innerHTML;
+    if(!checkLastCharIsOp(lastChar, opInHtml)) {
+      display.value += opInHtml;
+    }
+  });
+})
 /*    Função que envia Ponto para o display    */
 let ponto = document.getElementById("ponto");
 ponto.onclick = enviarPonto;
 function enviarPonto(){
   let lastChar = display.value[display.value.length - 1];
+  if(display.value.includes('.')) return
+
   if(display.value === "" || lastChar === "+" || lastChar === "-" || lastChar === "x" || lastChar === "÷"){
     display.value += ("0" + ".");
-  }else if(lastChar === "."){}else if(conta.value.includes("=")){
+  }else if(conta.value.includes("=")){
     limparDisplay()
     display.value += ("0" + ".");
   }else{
@@ -81,12 +90,13 @@ function calcularExpressao(){
 }
 /*    Função que troca o "x" e "÷" por "*" e "/"    */
 function traduzir(input) {
-  let simbolos = [["x" , "*"] , ["÷" , "/"]];
-  for(let i = 0; i < simbolos.length; i++) {
-      if(input.includes(simbolos[i][0])) {
-        input = input.replaceAll(simbolos[i][0], simbolos[i][1]);
-      }
-  }
+  const simbolos = [["x" , "*"] , ["÷" , "/"]];
+  simbolos.forEach(simbolo => {
+    if(input.includes(simbolo[0])) {
+      input = input.replaceAll(simbolo[0], simbolo[1]);
+    }
+  })
+
   return input; 
 }
 /*    Função para limpar todos os campos    */
@@ -156,25 +166,26 @@ function alternarSom(){
   audio.muted = !audio.muted;
 }
 /*    EventListener para tocar som no click de um botão    */
-let botao = document.querySelectorAll("button");
-for (let i = 0; i < botao.length; i++){
-  botao[i].addEventListener("click", () => {
+let botoes = document.querySelectorAll("button");
+botoes.forEach(botao => {
+  botao.addEventListener("click", () => {
     let audio = document.getElementById("somTeclas");
     audio.currentTime = 0;
     audio.play();
   });
-}
+})
 /*    Listener para carregar os números    */
 let numeros = document.querySelectorAll("#numeros");
 let operacoes =["+","-","÷","x"];
-for (let i = 0; i < numeros.length; i++){  
-  numeros[i].addEventListener("click", () => {
+numeros.forEach( numero => {
+  numero.addEventListener("click", () => {
     if (conta.value.includes("=") && !operacoes.some(operacoes=>display.value.includes(operacoes))) {
       limparDisplay();
-    }   
-    display.value += numeros[i].innerHTML;
+    }
+    display.value += numero.innerHTML;
   });
-}
+})
+
 /*    Modo Dark    */
 let dark = document.getElementById("dark");
 dark.onclick = DarkMode;
