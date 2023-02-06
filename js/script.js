@@ -47,22 +47,15 @@ function enviarPonto(){
 let zero = document.getElementById("zero");
 zero.onclick = enviarZero;
 function enviarZero(){
+  let operacoes =["+","-","÷","x"];
   let lastChar = display.value[display.value.length - 1];
-  if(display.value === "" || lastChar === "+" || lastChar === "-" || lastChar === "x" || lastChar === "÷"){
+  if(display.value === "" || lastChar === "+" || lastChar === "-" || lastChar === "x" || lastChar === "÷" || conta.value.includes("=") && operacoes.some(operacoes=>display.value.includes(operacoes))){
     display.value += "0";
   }else if(display.value === "0"){return;}else if(conta.value.includes("=")){
     limparDisplay()
     display.value += "0";
   }else{
     display.value += "0";
-  }
-}
-/*    Função que envia ZeroZero para o display    */
-let zeroZero = document.getElementById("zeroZero");
-zeroZero.onclick = enviarZeroZero;
-function enviarZeroZero(){
-  if(display.value === "" || display.value === "0" || conta.value.includes("=")){return;}else{
-    display.value += "00";
   }
 }
 /*    Função para calcular expressão do display    */

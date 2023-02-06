@@ -127,7 +127,6 @@ button {
     font-weight: bold;    
     font-size: 1.5rem;
     text-align: center;
-    border: none;
     width: 3rem;
     height: 3rem;
     margin: 0.5rem;
@@ -136,6 +135,9 @@ button {
     border-radius: 1rem;
     transition: background-color 0.1s ease;
     filter: drop-shadow(0.1rem 0.1rem 0.05rem var(--secundaria));
+    background-size: 1.6rem;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 .botaoMais{
     font-size: 2rem;
@@ -143,23 +145,19 @@ button {
 }
 #mutar{
     background-image: var(--svg-som);
-    background-repeat: no-repeat;
-    background-position: center center;
 }
 #backspace{
     background-image: var(--svg-BS);
-    background-repeat: no-repeat;
-    background-position: center center;
 }
 #dark{
     background-image: var(--modo);
-    background-repeat: no-repeat;
-    background-position: center center;
+}
+#zero{
+    width: 7rem;
 }
 button:active {
     background-color: var(--quaternaria);
 }
-
 #rodape{
     flex-direction: column;
     background: none;
@@ -183,7 +181,6 @@ button:active {
     font-size: 1rem;
     color: var(--primaria);
     text-align: right;
-    padding: 0 1rem;
     width: auto; 
     height: 100%;
     border: none;   
