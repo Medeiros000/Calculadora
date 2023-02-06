@@ -28,12 +28,14 @@ operacoesHtml.forEach((operacao) => {
 let ponto = document.getElementById("ponto");
 ponto.onclick = enviarPonto;
 function enviarPonto(){
+  let operacoes =["+","-","÷","x"];
   let lastChar = display.value[display.value.length - 1];
   /*    Criar um map para rastrear como o ponto se comporta na expressão    */
-  /*if(display.value.includes('.')) return*/
   if(lastChar === ".") return;
   if(display.value === "" || lastChar === "+" || lastChar === "-" || lastChar === "x" || lastChar === "÷"){
     display.value += ("0" + ".");
+  }else if(conta.value.includes("=") && operacoes.some(operacoes=>display.value.includes(operacoes))){
+    display.value += ".";
   }else if(conta.value.includes("=")){
     limparDisplay()
     display.value += ("0" + ".");
@@ -45,7 +47,8 @@ function enviarPonto(){
 let zero = document.getElementById("zero");
 zero.onclick = enviarZero;
 function enviarZero(){
-  if(display.value === ""){
+  let lastChar = display.value[display.value.length - 1];
+  if(display.value === "" || lastChar === "+" || lastChar === "-" || lastChar === "x" || lastChar === "÷"){
     display.value += "0";
   }else if(display.value === "0"){return;}else if(conta.value.includes("=")){
     limparDisplay()
