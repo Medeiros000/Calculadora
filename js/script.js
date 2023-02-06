@@ -47,7 +47,7 @@ zero.onclick = enviarZero;
 function enviarZero(){
   if(display.value === ""){
     display.value += "0";
-  }else if(display.value === "0"){}else if(conta.value.includes("=")){
+  }else if(display.value === "0"){return;}else if(conta.value.includes("=")){
     limparDisplay()
     display.value += "0";
   }else{
@@ -58,7 +58,7 @@ function enviarZero(){
 let zeroZero = document.getElementById("zeroZero");
 zeroZero.onclick = enviarZeroZero;
 function enviarZeroZero(){
-  if(display.value === "" || display.value === "0" || conta.value.includes("=")){}else{
+  if(display.value === "" || display.value === "0" || conta.value.includes("=")){return;}else{
     display.value += "00";
   }
 }
@@ -66,7 +66,8 @@ function enviarZeroZero(){
 let calcular = document.getElementById("calcular");
 calcular.onclick = calcularExpressao;
 function calcularExpressao(){
-  if(display.value === ""){    
+  if(display.value === ""){
+    return;
   }else{
     try{
       let expressaoPre = display.value;
